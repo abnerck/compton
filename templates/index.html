@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparatoria Arthur Holly Compton - Excelencia Educativa en Cuernavaca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Variables de Color */
+        :root {
+            --primary: #005f73;
+            /* Azul moderno */
+            --primary-dark: #0a4a62;
+            --secondary: #ee9b00;
+            /* Amarillo/naranja */
+            --accent: #bb3e03;
+            /* Naranja fuerte */
+            --light: #e9d8a6;
+            /* Beige claro */
+            --dark: #001219;
+            /* Casi negro */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f8f9fa;
+            --bg-dark: #212529;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Reset y Tipografía */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(187, 62, 3, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        /* Navbar Moderno */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .navbar-brand .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-brand .logo-main {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .navbar-brand .logo-sub {
+            font-size: 0.8rem;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a.active {
+            color: var(--secondary);
+        }
+
+        .nav-links li a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 20px;
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 95, 115, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.15;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: var(--text-light);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Value Propositions */
+        .value-props-section {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .prop-item {
+            background-color: var(--text-light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+
+        .prop-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-bottom-color: var(--secondary);
+        }
+
+        .prop-item .icon-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 95, 115, 0.3);
+        }
+
+        .prop-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .prop-item p {
+            color: #555;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .testimonials-section .section-title h2 {
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-section .section-title h2::after {
+            background-color: var(--secondary);
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonial-carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .testimonial-carousel::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .testimonial-item {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+        }
+
+        .testimonial-item .quote-icon {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-item p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--secondary);
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info span {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Featured Programs */
+        .featured-programs-section {
+            background-color: var(--bg-light);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-card .program-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .program-card .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-card .program-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .program-card .program-overlay h3 {
+            color: var(--text-light);
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .program-card .program-content {
+            padding: 25px;
+        }
+
+        .program-card .program-content p {
+            margin-bottom: 20px;
+        }
+
+        .program-card .program-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .program-card .program-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .program-card .program-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Admissions Process */
+        .admissions-process-section {
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .admissions-process-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .step-item {
+            background-color: var(--text-light);
+            padding: 40px 30px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .step-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(238, 155, 0, 0.4);
+        }
+
+        .step-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .step-item p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .step-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .step-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .step-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .contact-section .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .contact-section .section-title h2::after {
+            background-color: var(--secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form-container {
+            background-color: var(--text-light);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-container h3 {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 95, 115, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .privacy-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .privacy-checkbox input {
+            margin-right: 10px;
+        }
+
+        .privacy-checkbox label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .privacy-checkbox a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .contact-info-container {
+            color: var(--text-light);
+        }
+
+        .contact-info-container h3 {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-info-text h4 {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .contact-info-text p,
+        .contact-info-text a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info-text a:hover {
+            color: var(--secondary);
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--text-light);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-links li a {
+                font-size: 1.2rem;
+            }
+
+            .nav-cta {
+                margin: 20px 0 0;
+                display: block;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-section {
+                min-height: 600px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .navbar-brand .logo-main {
+                font-size: 1.2rem;
+            }
+
+            .navbar-brand .logo-sub {
+                font-size: 0.7rem;
+            }
+
+            .section-title h2::after {
+                width: 60px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Moderno -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo AHC">
+
+                <div class="logo-text">
+                    <span class="logo-main">Arthur Holly Compton</span>
+                    <span class="logo-sub">Preparatoria de Excelencia</span>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Inicio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#programs">Programas</a></li>
+                <li><a href="#admissions">Admisiones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#admissions-process" class="nav-cta">¡Inscríbete!</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-students-talking-to-each-other-in-the-library-299-large.mp4"
+                type="video/mp4">
+        </video>
+
+        <div class="hero-content">
+            <h1>Educación que Transforma Vidas</h1>
+            <p>En la Preparatoria Arthur Holly Compton formamos líderes con valores, conocimiento y visión global para
+                el mundo del mañana.</p>
+            <div class="hero-ctas">
+                <a href="#admissions-process" class="btn btn-primary">Iniciar Admisión</a>
+                <a href="#programs" class="btn btn-secondary">Nuestros Programas</a>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Value Propositions -->
+    <section id="about" class="value-props-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por Qué Elegirnos?</h2>
+                <p>Descubre lo que nos hace la mejor opción educativa en Cuernavaca</p>
+            </div>
+
+            <div class="prop-grid">
+                <div class="prop-item">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Excelencia Académica</h3>
+                    <p>Programas educativos de vanguardia con profesores altamente calificados y metodologías
+                        innovadoras.</p>
+                </div>
+
+                <div class="prop-item">
+                    <div class="icon-container">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Enfoque STEM</h3>
+                    <p>Fuerte énfasis en Ciencias, Tecnología, Ingeniería y Matemáticas para prepararte para las
+                        carreras del futuro.</p>
+                </div>
+
+                <div class="prop-item">
+                    <div class="icon-container">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Visón Global</h3>
+                    <p>Programas de intercambio y certificaciones internacionales que amplían tus horizontes.</p>
+                </div>
+
+                <div class="prop-item">
+                    <div class="icon-container">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Desarrollo Humano</h3>
+                    <p>Formación en valores, inteligencia emocional y habilidades para la vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonios</h2>
+                <p>Lo que dicen nuestros estudiantes y padres de familia</p>
+            </div>
+
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>La preparatoria Arthur Holly Compton me dio las herramientas académicas y personales para
+                        ingresar a mi carrera soñada en el ITESM. Los profesores van más allá de solo enseñar, inspiran.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Sofía González">
+                        <div class="author-info">
+                            <h4>Sofía González</h4>
+                            <span>Generación 2023 - Actualmente en ITESM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>Como padre, valoro el ambiente seguro y el enfoque integral que ofrece esta institución. Mi hijo
+                        ha desarrollado no solo conocimientos, sino también carácter y liderazgo.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Roberto Martínez">
+                        <div class="author-info">
+                            <h4>Roberto Martínez</h4>
+                            <span>Padre de familia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>Las actividades extracurriculares y los programas de robótica cambiaron mi perspectiva. Ahora sé
+                        que quiero estudiar ingeniería y estoy más que preparado para ello.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendoza">
+                        <div class="author-info">
+                            <h4>Carlos Mendoza</h4>
+                            <span>Estudiante de 5to semestre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Programs -->
+    <section id="programs" class="featured-programs-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Programas</h2>
+                <p>Oferta educativa diseñada para el éxito</p>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8113297a1ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Programa STEM">
+                        <div class="program-overlay">
+                            <h3>Programa STEM</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <p>Enfoque en Ciencias, Tecnología, Ingeniería y Matemáticas con laboratorios equipados y
+                            proyectos prácticos.</p>
+                        <a href="#" class="program-link">Saber más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Bachillerato Internacional">
+                        <div class="program-overlay">
+                            <h3>Bachillerato Internacional</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <p>Programa reconocido mundialmente que prepara a los estudiantes para universidades de
+                            prestigio internacional.</p>
+                        <a href="#" class="program-link">Saber más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Artes y Humanidades">
+                        <div class="program-overlay">
+                            <h3>Artes y Humanidades</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <p>Desarrollo de habilidades creativas y pensamiento crítico a través de las artes, literatura y
+                            ciencias sociales.</p>
+                        <a href="#" class="program-link">Saber más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" class="btn btn-outline">Ver todos los programas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Process -->
+    <section id="admissions-process" class="admissions-process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proceso de Admisión</h2>
+                <p>Sigue estos sencillos pasos para unirte a nuestra comunidad</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Solicita Información</h3>
+                    <p>Completa nuestro formulario en línea o agenda una cita para conocer más sobre nuestra oferta
+                        educativa.</p>
+                    <a href="#contact" class="step-link">Contactar <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Visita Nuestro Campus</h3>
+                    <p>Conoce nuestras instalaciones, metodología y resuelve todas tus dudas en un recorrido
+                        personalizado.</p>
+                    <a href="#contact" class="step-link">Agendar visita <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Presenta Examen de Admisión</h3>
+                    <p>Realiza nuestra evaluación diagnóstica para determinar el nivel académico y áreas de oportunidad.
+                    </p>
+                    <a href="#" class="step-link">Preparación <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Completa tu Inscripción</h3>
+                    <p>Entrega la documentación requerida y formaliza tu inscripción para comenzar este viaje educativo.
+                    </p>
+                    <a href="#" class="step-link">Requisitos <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" class="btn btn-primary">Iniciar proceso ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <h3>Envíanos un mensaje</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Teléfono (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Asunto</option>
+                                <option>Admisiones</option>
+                                <option>Información académica</option>
+                                <option>Eventos</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="privacy-checkbox">
+                                <input type="checkbox" id="privacy" required>
+                                <label for="privacy">Acepto la <a href="#">política de privacidad</a></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-container">
+                    <h3>Información de contacto</h3>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-text">
+                            <h4>Dirección</h4>
+                            <p>Calle del Conocimiento #123, Col. Educación, Cuernavaca, Mor. 62000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info-text">
+                            <h4>Teléfonos</h4>
+                            <p><a href="tel:7771234567">(777) 123 4567</a><br>
+                                <a href="tel:7777654321">(777) 765 4321</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-text">
+                            <h4>Correo electrónico</h4>
+                            <p><a href="mailto:info@arthurhollycompton.edu.mx">info@arthurhollycompton.edu.mx</a></p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.7221306723326!2d-99.2192371!3d18.9166661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddfa69e85c5ab%3A0xcc4b2129fae6a8fa!2sColegio%20Arthur%20Holly%20Compton!5e0!3m2!1ses!2smx!4v1719166825874!5m2!1ses!2smx"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col footer-about">
+                <div class="footer-logo">
+                    <img src="https://via.placeholder.com/150x50?text=Logo+AHC" alt="Preparatoria Arthur Holly Compton">
+                    <span class="footer-logo-text">Arthur Holly Compton</span>
+                </div>
+                <p>Formando líderes con excelencia académica y valores humanos desde 1995 en Cuernavaca, Morelos.</p>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/p/Colegio-Compton-SC-100094584320222/?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Enlaces rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre nosotros</a></li>
+                    <li><a href="#programs">Programas académicos</a></li>
+                    <li><a href="#admissions-process">Admisiones</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Programas</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Bachillerato STEM</a></li>
+                    <li><a href="#">Bachillerato Internacional</a></li>
+                    <li><a href="#">Artes y Humanidades</a></li>
+                    <li><a href="#">Programas de intercambio</a></li>
+                    <li><a href="#">Actividades extracurriculares</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul class="footer-contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Cantarranas, Alta Tensión 1588, Acapantzingo, 62440 Cuernavaca, Mor.</li>
+                    <li><i class="fas fa-phone-alt"></i> 777 682 6972</li>
+                    <li><i class="fas fa-envelope"></i> info@arthurhollycompton.edu.mx</li>
+                    <li><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 - 18:00 hrs</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Preparatoria Arthur Holly Compton. Todos los derechos reservados. | <a href="#">Aviso de privacidad</a> | <a href="#">Términos y condiciones</a></p>
+        </div>
+    </div>
+</footer>
+
+<style>
+/* Footer Styles */
+.main-footer {
+    background-color: #001219;
+    color: #ffffff;
+    padding: 60px 0 30px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-col {
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #ee9b00;
+}
+
+.footer-about .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer-about .footer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.footer-about p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social-links a {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    background-color: #ee9b00;
+    color: #001219;
+    transform: translateY(-3px);
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: #ee9b00;
+    transform: translateX(5px);
+}
+
+.footer-contact-info li {
+    display: flex;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    align-items: flex-start;
+}
+
+.footer-contact-info i {
+    margin-right: 12px;
+    color: #ee9b00;
+    margin-top: 3px;
+}
+
+.footer-contact-info a {
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+    color: #ee9b00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+}
+
+.footer-bottom a {
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #ee9b00;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-col {
+        margin-bottom: 30px;
+    }
+    
+    .footer-col h4 {
+        margin-bottom: 15px;
+    }
+    
+    .footer-bottom {
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-contact-info li {
+        flex-direction: column;
+    }
+    
+    .footer-contact-info i {
+        margin-bottom: 5px;
+    }
+}
+</style>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (this.getAttribute('href') === '#') return;
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
+        // Active Link Highlighting
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links li a');
+
+        window.addEventListener('scroll', function () {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
